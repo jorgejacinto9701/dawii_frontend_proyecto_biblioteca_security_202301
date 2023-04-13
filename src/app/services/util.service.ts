@@ -3,11 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../app.settings';
 import { Alumno } from '../models/alumno.model';
-import { Categoria } from '../models/categoria.model';
-import { Grado } from '../models/grado.model';
-import { Modalidad } from '../models/modalidad.model';
 import { Pais } from '../models/pais.model';
-import { Sede } from '../models/sede.model';
+import { DataCatalogo } from '../models/dataCatalogo.model';
 
 const baseUrlUtil = AppSettings.API_ENDPOINT+ '/util';
 
@@ -22,25 +19,38 @@ export class UtilService {
     return this.http.get<Pais[]>(baseUrlUtil+"/listaPais");
   }
 
-  listaCategoria():Observable<Categoria[]>{
-    return this.http.get<Categoria[]>(baseUrlUtil+"/listaCategoria");
-  }
-
-  listaGrado():Observable<Grado[]>{
-    return this.http.get<Grado[]>(baseUrlUtil+"/listaGrado");
-  }
-
-  listaModalidad():Observable<Modalidad[]>{
-    return this.http.get<Grado[]>(baseUrlUtil+"/listaModalidad");
-  }
-
-  listaSede():Observable<Sede[]>{
-    return this.http.get<Sede[]>(baseUrlUtil+"/listaSede");
-  }
-
   listaAlumno():Observable<Alumno[]>{
     return this.http.get<Alumno[]>(baseUrlUtil+"/listaAlumno");
   }
+
+  listaCategoriaDeLibro():Observable<DataCatalogo[]>{
+    return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaCategoriaDeLibro");
+  }
+
+  listaTipoProveedor():Observable<DataCatalogo[]>{
+    return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaTipoProveedor");
+  }
+
+  listaModalidadAlumno():Observable<DataCatalogo[]>{
+    return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaModalidadAlumno");
+  }
+
+  listaGradoAutor():Observable<DataCatalogo[]>{
+    return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaGradoAutor");
+  }
+
+  listaTipoLibroRevista():Observable<DataCatalogo[]>{
+    return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaTipoLibroRevista");
+  }
+
+  listaTipoSala():Observable<DataCatalogo[]>{
+    return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaTipoSala");
+  }
+
+  listaSede():Observable<DataCatalogo[]>{
+    return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaSede");
+  }
+
 }
 
 
